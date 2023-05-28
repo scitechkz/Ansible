@@ -1,0 +1,25 @@
+---
+- name: Web Deployment with Nginx on Ubuntu
+  hosts: tag_Name_Ubuntu
+  gather_facts: true
+  become: true
+  remote_user: ubuntu
+  vars_files:
+    - secret.yml
+
+  tasks:
+    - name: Print password
+      debug:
+        msg: "{{ password }}"
+
+  roles:
+  - nginx_server
+
+- name: Web Deployment with Nginx on Amazon
+  hosts: tag_Name_Amazon2
+  gather_facts: true
+  become: true
+  remote_user: ec2-user
+  roles:
+  - nginx_server
+

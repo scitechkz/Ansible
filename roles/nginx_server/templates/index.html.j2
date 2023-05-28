@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Hello from Ngnix </title>
+    </head>
+    <body>
+    
+        <div>
+            <h1>This is our test webserver</h1>
+            <p>Ansible Facts</p>
+            
+            <table>
+                <tr>
+                    <th>Distro</th>
+                    <th>OS family</th> 
+                    <th>Date/Time</th>
+                    <th>Major Version</th>
+                </tr>
+                
+                {% for host in groups['tag_Name_Ubuntu'] %}
+                    <tr>
+                        <td>{{ hostvars[host]['ansible_facts']['distribution'] }}</td>
+                        <td>{{ hostvars[host]['ansible_os_family'] }}</td> 
+                        <td>{{ hostvars[host]['ansible_date_time']['date'] }}</td> 
+                        <td>{{ hostvars[host]["ansible_distribution_major_version"] }}</td> 
+                    </tr>
+                {% endfor %}
+            
+            </table>
+
+        </div>
+   
+    </body>
+</html>
