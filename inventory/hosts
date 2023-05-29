@@ -3,4 +3,4 @@
 3.91.35.16 ansible_user=ec2-user 
 
 [webservers:vars]
-ansible_private_key_file=/Users/josephayeni/desktop/devops/mac-key-pair.pem
+ansible_private_key_file=: /home/ec2-user/.ssh/kazkey.pem
